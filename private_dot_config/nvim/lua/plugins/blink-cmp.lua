@@ -6,11 +6,27 @@ return {
     "andersevenrud/cmp-tmux",
   },
   opts = {
+    -- appareance
+    completion = {
+      menu = { border = "single" },
+      documentation = { window = { border = "single" } },
+    },
+    signature = { window = { border = "single" } },
+    -- sources
     sources = {
       compat = { "tmux", "spell" },
       default = { "emoji" }, -- adding emoji to the default
       providers = {
-        -- create provider
+        buffer = {
+          opts = {
+            -- (recommended) filter to only "normal" buffers but all the others
+            get_bufnrs = function()
+              return vim.tbl_filter(function(bufnr)
+                return vim.bo[bufnr].buftype == ""
+              end, vim.api.nvim_list_bufs())
+            end,
+          },
+        },
         emoji = {
           module = "blink-emoji",
           name = "Emoji",

@@ -7,7 +7,7 @@ vim.o.clipboard = "unnamedplus"
 
 -- vim.o.spelllang = "en_us,fr"
 vim.o.spelllang = "fr"
-vim.o.spell = true
+vim.o.spell = false
 
 vim.o.redrawtime = 3500 -- increase from 2000, to let some Telescope searches highlight
 
