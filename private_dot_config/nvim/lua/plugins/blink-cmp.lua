@@ -2,12 +2,12 @@ return {
   "saghen/blink.cmp",
   dependencies = {
     "moyiz/blink-emoji.nvim",
-    "Kaiser-Yang/blink-cmp-dictionary",
     "f3fora/cmp-spell",
+    "andersevenrud/cmp-tmux",
   },
   opts = {
     sources = {
-      compat = { "spell" },
+      compat = { "tmux", "spell" },
       default = { "emoji" }, -- adding emoji to the default
       providers = {
         -- create provider
@@ -17,6 +17,26 @@ return {
           score_offset = 15, -- the higher the number, the higher the priority
           opts = { insert = true }, -- Insert emoji (default) or complete its name
         },
+        tmux = {
+          name = "tmux", -- IMPORTANT: use the same name as you would for nvim-cmp
+          module = "blink.compat.source",
+          -- all blink.cmp source config options work as normal:
+          score_offset = 40,
+          -- this table is passed directly to the proxied completion source
+          -- as the `option` field in nvim-cmp's source config
+          -- this is NOT the same as the opts in a plugin's lazy.nvim spec
+          opts = {
+            -- Source from all panes in session instead of adjacent panes
+            all_panes = true,
+            -- Completion popup label
+            label = "[tmux]",
+            -- Capture full pane history
+            -- `false`: show completion suggestion from text in the visible pane (default)
+            -- `true`: show completion suggestion from text starting from the beginning of the pane history.
+            --         This works by passing `-S -` flag to `tmux capture-pane` command. See `man tmux` for details.
+            capture_history = true,
+          },
+        },
         spell = {
           name = "spell", -- IMPORTANT: use the same name as you would for nvim-cmp
           module = "blink.compat.source",
@@ -25,7 +45,9 @@ return {
           -- this table is passed directly to the proxied completion source
           -- as the `option` field in nvim-cmp's source config
           -- this is NOT the same as the opts in a plugin's lazy.nvim spec
-          opts = {},
+          opts = {
+            label = "[spell]",
+          },
         },
       }, -- fin providers
     }, -- fin sources

@@ -21,3 +21,17 @@ vim.api.nvim_set_keymap("v", "p", '"_dP', { silent = true, desc = "Paste And Ret
 -- Keep search results centred
 vim.api.nvim_set_keymap("n", "n", "nzzzv", { noremap = true, silent = true, desc = "keep search results centered" })
 vim.api.nvim_set_keymap("n", "N", "Nzzzv", { noremap = true, silent = true, desc = "keep search results centered" })
+
+-- Remap CTRL Left/Right to same behaviour than in insert mode
+vim.api.nvim_set_keymap("n", "<C-Left>", "b", { noremap = true, silent = true, desc = "Word begin" })
+vim.api.nvim_set_keymap("n", "<C-Right>", "e", { noremap = true, silent = true, desc = "Word end" })
+vim.api.nvim_set_keymap("n", "<C-Down>", "<C-d>", { noremap = true, silent = true, desc = "Scroll Down" })
+vim.api.nvim_set_keymap("n", "<C-Up>", "<C-u>", { noremap = true, silent = true, desc = "Scroll Up" })
+
+-- Copy Filename of current buffer
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>jf", -- my custom keymaps start with leader j
+  '<cmd>let @+ = expand("%")<CR>',
+  { desc = "Copy File Name of current Buffer" }
+)
