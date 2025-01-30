@@ -18,6 +18,7 @@ return {
       default = { "emoji" }, -- adding emoji to the default
       providers = {
         buffer = {
+          score_offset = 50,
           opts = {
             -- (recommended) filter to only "normal" buffers but all the others
             get_bufnrs = function()
@@ -37,7 +38,7 @@ return {
           name = "tmux", -- IMPORTANT: use the same name as you would for nvim-cmp
           module = "blink.compat.source",
           -- all blink.cmp source config options work as normal:
-          score_offset = 40,
+          score_offset = 10,
           -- this table is passed directly to the proxied completion source
           -- as the `option` field in nvim-cmp's source config
           -- this is NOT the same as the opts in a plugin's lazy.nvim spec
@@ -57,7 +58,7 @@ return {
           name = "spell", -- IMPORTANT: use the same name as you would for nvim-cmp
           module = "blink.compat.source",
           -- all blink.cmp source config options work as normal:
-          score_offset = -3,
+          score_offset = 14,
           -- this table is passed directly to the proxied completion source
           -- as the `option` field in nvim-cmp's source config
           -- this is NOT the same as the opts in a plugin's lazy.nvim spec
