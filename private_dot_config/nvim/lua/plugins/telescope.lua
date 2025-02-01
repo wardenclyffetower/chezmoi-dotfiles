@@ -42,8 +42,8 @@ return {
       require("telescope").setup({
         defaults = {
           layout_strategy = "vertical",
-          layout_config = { width = 0.99, height = 0.99, preview_cutoff = 1 },
-          path_display = { "smart" },
+          layout_config = { width = 0.75, height = 0.75, preview_cutoff = 1 },
+          path_display = { shorten = { len = 4, exclude = { 1, -1 } } }, -- smart was too impactfull on performance
           history = {
             path = "~/.local/share/nvim/databases/telescope_history.sqlite3",
             limit = 100,

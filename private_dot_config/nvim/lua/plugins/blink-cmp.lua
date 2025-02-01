@@ -8,17 +8,27 @@ return {
   opts = {
     -- appareance
     completion = {
-      menu = { border = "single" },
+      menu = { max_height = 10, border = "single", scrollbar = false },
+
       documentation = { window = { border = "single" } },
     },
     signature = { window = { border = "single" } },
     -- sources
     sources = {
-      compat = { "tmux", "spell" },
+      compat = { "tmux", "spell" }, -- only the nvim-cmp sources
       default = { "emoji" }, -- adding emoji to the default
       providers = {
+        snippets = {
+          name = "Snippets",
+          score_offset = 200,
+        },
+        path = {
+          name = "Path",
+          score_offset = 150,
+          fallbacks = { "buffer" },
+        },
         buffer = {
-          score_offset = 50,
+          score_offset = 140,
           opts = {
             -- (recommended) filter to only "normal" buffers but all the others
             get_bufnrs = function()
@@ -31,8 +41,20 @@ return {
         emoji = {
           module = "blink-emoji",
           name = "Emoji",
-          score_offset = 15, -- the higher the number, the higher the priority
+          score_offset = 130, -- the higher the number, the higher the priority
           opts = { insert = true }, -- Insert emoji (default) or complete its name
+        },
+        spell = {
+          name = "spell", -- IMPORTANT: use the same name as you would for nvim-cmp
+          module = "blink.compat.source",
+          -- all blink.cmp source config options work as normal:
+          score_offset = 14,
+          -- this table is passed directly to the proxied completion source
+          -- as the `option` field in nvim-cmp's source config
+          -- this is NOT the same as the opts in a plugin's lazy.nvim spec
+          opts = {
+            label = "[spell]",
+          },
         },
         tmux = {
           name = "tmux", -- IMPORTANT: use the same name as you would for nvim-cmp
@@ -54,17 +76,9 @@ return {
             capture_history = true,
           },
         },
-        spell = {
-          name = "spell", -- IMPORTANT: use the same name as you would for nvim-cmp
-          module = "blink.compat.source",
-          -- all blink.cmp source config options work as normal:
-          score_offset = 14,
-          -- this table is passed directly to the proxied completion source
-          -- as the `option` field in nvim-cmp's source config
-          -- this is NOT the same as the opts in a plugin's lazy.nvim spec
-          opts = {
-            label = "[spell]",
-          },
+        cmdline = {
+          name = "cmdline",
+          score_offset = 4,
         },
       }, -- fin providers
     }, -- fin sources

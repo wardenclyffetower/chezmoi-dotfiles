@@ -9,7 +9,7 @@ return {
 \____|__  / \___  >\____/  \___/   |__||__|_|  /
         \/      \/                           \/ 
 ]]
-    logo = string.rep("\n", 8) .. logo .. "\n\n"
+    logo = string.rep("\n", 3) .. logo .. "\n\n"
     local opts = {
       theme = "doom",
       hide = {
@@ -26,7 +26,8 @@ return {
             { action = 'lua LazyVim.pick("oldfiles")()',                 desc = " Recent Files",    icon = " ", key = "r" },
             { action = 'lua LazyVim.pick("live_grep")()',                desc = " Find Text",       icon = " ", key = "g" },
             { action = 'lua LazyVim.pick.config_files()()',              desc = " Config",          icon = " ", key = "c" },
-            -- { action = 'lua require("persistence").load()',              desc = " Restore Session", icon = " ", key = "s" },
+            { action = 'Telescope projects',                             desc = " Projects",        icon = "📖 ", key = "p" },
+            { action = 'lua require("persistence").load()',              desc = " Restore Session", icon = " ", key = "s" },
             { action = "LazyExtras",                                     desc = " Lazy Extras",     icon = " ", key = "x" },
             { action = "Lazy",                                           desc = " Lazy",            icon = "󰒲 ", key = "l" },
             { action = function() vim.api.nvim_input("<cmd>qa<cr>") end, desc = " Quit",            icon = " ", key = "q" },
