@@ -1,0 +1,1 @@
+{"retlazyvim (New Nvim Plugin)":{"prefix":"retlazyvim (New Nvim Plugin)","body":["return {","  \"${1:github}\",","  opts = {","    $0","  },","}"]}}
