@@ -20,7 +20,7 @@ return {
       providers = {
         snippets = {
           name = "Snippets",
-          score_offset = 200,
+          score_offset = 155,
         },
         path = {
           name = "Path",

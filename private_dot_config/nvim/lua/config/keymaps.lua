@@ -35,3 +35,11 @@ vim.api.nvim_set_keymap(
   '<cmd>let @+ = expand("%")<CR>',
   { desc = "Copy File Name of current Buffer" }
 )
+
+-- Terminal quit management (the launch is managed on ToggleTerm.lua)
+vim.api.nvim_set_keymap(
+  "t",
+  "<Esc>",
+  "<C-\\><C-n>:ToggleTerm<CR>",
+  { noremap = true, silent = true, desc = "Esc quits terminal" }
+) -- issue Esc to quit Terminal

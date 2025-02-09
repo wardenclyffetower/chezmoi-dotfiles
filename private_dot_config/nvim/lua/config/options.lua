@@ -13,3 +13,5 @@ vim.o.redrawtime = 3500 -- increase from 2000, to let some Telescope searches hi
 
 vim.o.pumheight = 15 -- also used on nvim-cmp
 vim.o.pumblend = 0 -- no transparency on menu of completions
+
+vim.g.lazyvim_python_lsp = "pyright"
