@@ -13,15 +13,16 @@ return {
       documentation = { window = { border = "single" } },
     },
     signature = { window = { border = "single" } },
+    -- keymaps
+    -- keymap = {
+    --   -- Manually invoke minuet completion.
+    --   ["<A-y>"] = require("minuet").make_blink_map(),
+    -- },
     -- sources
     sources = {
       compat = { "tmux", "spell" }, -- only the nvim-cmp sources
-      default = { "emoji" }, -- adding emoji to the default
+      default = { "emoji" }, -- adding these sources to the default
       providers = {
-        snippets = {
-          name = "Snippets",
-          score_offset = 155,
-        },
         path = {
           name = "Path",
           score_offset = 150,
@@ -43,6 +44,15 @@ return {
           name = "Emoji",
           score_offset = 130, -- the higher the number, the higher the priority
           opts = { insert = true }, -- Insert emoji (default) or complete its name
+        },
+        -- minuet = {
+        --   name = "minuet",
+        --   module = "minuet.blink",
+        --   score_offset = 80, -- Gives minuet higher priority among suggestions
+        -- },
+        snippets = {
+          name = "Snippets",
+          score_offset = 50,
         },
         spell = {
           name = "spell", -- IMPORTANT: use the same name as you would for nvim-cmp
