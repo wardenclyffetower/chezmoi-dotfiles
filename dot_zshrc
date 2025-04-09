@@ -6,7 +6,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$PATH:$HOME/bin:/usr/local/bin:$HOME/.local/bin/:$HOME/.cargo/bin:$HOME/node_modules/.bin
+export PATH=$PATH:$HOME/bin:/usr/local/bin:$HOME/.local/bin/:$HOME/.cargo/bin:$HOME/node_modules/.bin:$HOME/go/bin/
+
+# asdf
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/joaquim/.oh-my-zsh"
@@ -58,6 +61,7 @@ export PYTHONDONTWRITEBYTECODE="1"
 # Also needed for keepassxc
 export QT_QPA_PLATFORM="xcb"
 
+export XDG_CONFIG_HOME="$HOME/.config/"
 
 # ALIASES
 # =====================================
@@ -73,3 +77,4 @@ export QT_QPA_PLATFORM="xcb"
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
