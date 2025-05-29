@@ -109,7 +109,7 @@ fi
 
 echo ":: Execute pywal with $used_wallpaper"
 wal -q -i "$used_wallpaper"
-sleep 5 # increase from 2
+sleep 2 # increase from 2
 source "$HOME/.cache/wal/colors.sh"
 
 # -----------------------------------------------------
@@ -175,3 +175,10 @@ echo "* { current-image: url(\"$blurredwallpaper\", height); }" >"$rasifile"
 echo ":: Generate new cached wallpaper square-$wallpaperfilename"
 magick $tmpwallpaper -gravity Center -extent 1:1 $squarewallpaper
 cp $squarewallpaper $generatedversions/square-$wallpaperfilename.png
+
+# -----------------------------------------------------
+# Reload hyprland configuration
+# -----------------------------------------------------
+
+cp ~/.cache/wal/colors-hyprland.conf ~/.cache/wal/colors-hyprland-done.conf
+hyprctl reload
