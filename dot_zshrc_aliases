@@ -1,0 +1,7 @@
+alias vi=nvim
+alias vim=nvim
+alias cat=bat
+alias ls='eza -algF --icons=always'
+alias aurgetpkgbuild='yay --getpkgbuild'
+alias zcd="cd \$(FZF_DEFAULT_COMMAND=\"fd --type d --hidden --one-file-system --exclude .git --exclude .cache --search-path '/home/inodb/'\" fzf -e)"
+alias zfile="cd \$(FZF_DEFAULT_COMMAND=\"fd --type f --hidden --one-file-system --exclude .git --exclude .cache --search-path '/home/inodb/'\" fzf -e)"
